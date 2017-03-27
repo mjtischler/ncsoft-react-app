@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/header/header.js';
-import Calculator from './components/calculator/calculator.js';
+import Header from './components/header/header.jsx';
+import Calculator from './components/calculator/calculator.jsx';
 
 class App extends React.Component {
     render () {
@@ -12,6 +12,6 @@ class App extends React.Component {
             </div>
         );
     }
-};
+}
 
-ReactDOM.render(<App/>, document.getElementById("app"));
+ReactDOM.render(<App/>, document.getElementById('app'));

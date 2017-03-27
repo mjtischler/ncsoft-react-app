@@ -2,11 +2,9 @@ export let calculateCoins = (quartersValue, dimesValue, nicklesValue, penniesVal
 
     var coins = [quartersValue, dimesValue, nicklesValue, penniesValue];
 
-    var amountEntered = amountEntered;
-
     return {
         coins: coins,
         amountEntered: amountEntered
     };
 
-}
+};

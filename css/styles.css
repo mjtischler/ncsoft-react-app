@@ -1,14 +1,19 @@
 body {
+    height: 100%;
+    width: 100%;
     font-family: 'Roboto', 'Sans Serif';
-    font-size: 16px;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-size: 14px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 header {
     background-color: #00557b;
     padding: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 0px auto;
 }
 
 h1, h2 {
@@ -27,22 +32,8 @@ h2 {
     margin: 24px 0;
 }
 
-input[type=text] {
-    width: 150px;
-    height: 24px;
-    padding: 3px 8px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-shadow: none;
-}
-
 .content {
     position: relative;
-    height: 100%;
-    width: 100%;
     padding: 20px;
 }
 
@@ -118,5 +109,25 @@ input[type=text] {
 }
 
 .form > div {
+    display: inline-block;
+    width: 50%;
     margin: 6px 0;
+}
+
+.calc-value-form {
+    width: 50%;
+    height: 24px;
+    padding: 3px 8px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+@media only screen and (max-width: 959px) and (min-width: 0) {
+    .calc-card {
+        width: 90%;
+    }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import * as Coins from './coins.jsx';
 
 var Calculator = React.createClass({
     getInitialState: function() {
@@ -50,6 +49,8 @@ var Calculator = React.createClass({
             }
         ];
 
+        var amountEntered = this.state.amountEntered;
+
         var coinValues = coins.map(function(coin) {
             return (
                 <div className="calc-card-circle-container" key={coin.name}>
@@ -66,6 +67,19 @@ var Calculator = React.createClass({
             );
         });
 
+        var calculateValues = function(coins, amountEntered) {
+            var remainder = null;
+
+            for (var coin of coins) {
+                coin.total = Math.floor(amountEntered / coin.denomination);
+
+                remainder = amountEntered - coin.total * coin.denomination;
+
+                amountEntered = remainder;
+            }
+            console.log(coins);
+        };
+
         return (
             <div className="content">
                 <div className="calc-card">
@@ -73,29 +87,35 @@ var Calculator = React.createClass({
 
                     <div className="form">
                         <div>
-                            <input type="text" value={this.state.quartersValue} onChange={this.quartersValueChange}/>
+                            <label>Quarters Value</label>
+                            <input className="calc-value-form" type="text" value={this.state.quartersValue} onChange={this.quartersValueChange}/>
                         </div>
 
                         <div>
-                            <input type="text" value={this.state.dimesValue} onChange={this.dimesValueChange}/>
+                            <label>Dimes Value</label>
+                            <input className="calc-value-form" type="text" value={this.state.dimesValue} onChange={this.dimesValueChange}/>
                         </div>
 
                         <div>
-                            <input type="text" value={this.state.nickelsValue} onChange={this.nickelsValueChange}/>
+                            <label>Nickels Value</label>
+                            <input className="calc-value-form" type="text" value={this.state.nickelsValue} onChange={this.nickelsValueChange}/>
                         </div>
 
                         <div>
-                            <input type="text" value={this.state.penniesValue} onChange={this.penniesValueChange}/>
+                            <label>Pennies Value</label>
+                            <input className="calc-value-form" type="text" value={this.state.penniesValue} onChange={this.penniesValueChange}/>
                         </div>
 
                         <div>
-                            <input type="text" value={this.state.amountEntered} onChange={this.amountEnteredValueChange}/>
+                            <label>Enter Amount</label>
+                            <input className="calc-value-form" type="text" value={this.state.amountEntered} onChange={this.amountEnteredValueChange}/>
+                        </div>
+
+                        <div>
+                            <button className="coin-counter-button" onClick={() => (calculateValues(coins, amountEntered))}>CALCULATE</button>
                         </div>
                     </div>
 
-                    <div>
-                        <button className="coin-counter-button">CALCULATE</button>
-                    </div>
                 </div>
             </div>
         );
